@@ -322,6 +322,38 @@ details .faq-body {
   font-size: 0.95rem;
 }
 
+/* ===== 书籍下拉摘要行 ===== */
+.book-summary-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.book-summary-inner .book-number {
+  background: #D4A76A;
+  color: #fff;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.book-summary-inner .tag {
+  display: inline-block;
+  background: #FFF0D9;
+  color: #8B5E3C;
+  font-size: 0.78rem;
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  border: 1px solid #D4A76A;
+}
+
 /* ===== 按钮 ===== */
 .btn {
   display: inline-block;
