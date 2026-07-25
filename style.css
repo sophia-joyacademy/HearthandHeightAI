@@ -64,10 +64,30 @@ nav ul li a.active {
 
 /* ===== Hero 横幅 ===== */
 .hero {
-  background: linear-gradient(135deg, #5C4033 0%, #8B5E3C 100%);
+  position: relative;
+  background-image: url("header.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #5C4033;
   color: #fff;
   padding: 4rem 2rem;
   text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 35, 20, 0.55);
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+.site-logo {
+  display: block;
+  margin: 0 auto 1.2rem;
+  max-height: 90px;
+  width: auto;
 }
 
 .hero h1 {
@@ -345,7 +365,8 @@ footer a { color: #D4A76A; text-decoration: none; }
   nav ul { flex-wrap: wrap; justify-content: center; }
   nav ul li a { height: 38px; line-height: 38px; padding: 0 0.6rem; font-size: 0.82rem; }
   .nav-logo { padding: 0.5rem 0; }
-  .hero h1 { font-size: 1.5rem; }
+  
+.hero h1 { font-size: 1.5rem; }
   .values-grid { grid-template-columns: 1fr; }
   .book-card { flex-direction: column; }
   .resource-card { flex-direction: column; align-items: flex-start; }
