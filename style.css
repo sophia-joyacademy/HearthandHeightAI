@@ -27,15 +27,28 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  min-height: 64px;
 }
 
 .nav-logo {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #5C4033;
   text-decoration: none;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  height: 64px;
+  line-height: normal;
+}
+
+.nav-logo-img {
+  display: inline-block;
+  height: 64px;
+  max-height: 64px;
+  width: auto;
+  margin-right: 0.6rem;
+  vertical-align: middle;
 }
 
 nav ul {
@@ -45,15 +58,17 @@ nav ul {
 }
 
 nav ul li a {
-  display: block;
+  display: inline-flex;
+  align-items: center;
   color: #5C4033;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   padding: 0 0.9rem;
-  height: 60px;
-  line-height: 60px;
+  height: 64px;
+  line-height: normal;
   border-bottom: 3px solid transparent;
   transition: border-color 0.2s, color 0.2s;
+  transform: translateY(12px);
 }
 
 nav ul li a:hover,
@@ -70,8 +85,9 @@ nav ul li a.active {
   background-position: center;
   background-color: #5C4033;
   color: #fff;
-  padding: 4rem 2rem;
+  padding: calc(4rem - 36px) 2rem;
   text-align: center;
+  min-height: 172px;
 }
 
 .hero::before {
