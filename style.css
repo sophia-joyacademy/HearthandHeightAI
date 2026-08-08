@@ -27,7 +27,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 80px;
+  min-height: 88px;
 }
 
 .nav-logo {
@@ -38,7 +38,8 @@ nav {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  height: 80px;
+  gap: 0.6rem;
+  height: 88px;
   line-height: normal;
 }
 
@@ -64,7 +65,7 @@ nav ul li a {
   text-decoration: none;
   font-size: 0.95rem;
   padding: 0 0.9rem;
-  height: 80px;
+  height: 88px;
   line-height: normal;
   border-bottom: 3px solid transparent;
   transition: border-color 0.2s, color 0.2s;
@@ -84,9 +85,9 @@ nav ul li a.active {
   background-position: center;
   background-color: #5C4033;
   color: #fff;
-  padding: calc(4rem - 36px) 2rem;
+  padding: 2.5rem 2rem;
   text-align: center;
-  min-height: 172px;
+  min-height: 140px;
 }
 
 .hero::before {
