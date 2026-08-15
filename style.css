@@ -118,13 +118,57 @@ nav ul li a.active {
   text-decoration: none;
 }
 
+/* ===== 导航栏「品格操练」二级下拉菜单 ===== */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  min-width: 150px;
+  padding: 0.4rem 0;
+  margin: 0;
+  z-index: 200;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu li {
+  list-style: none;
+}
+
+.nav-dropdown-menu li a {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu li a:hover {
+  background: var(--gold-light);
+  color: var(--navy);
+}
+
 /* ===== Hero 横幅 ===== */
 .hero {
   position: relative;
   background: var(--gold-light);
   border-bottom: 1px solid #e8dfc4;
   color: var(--navy);
-  padding: 2.5rem 1.5rem 2rem;
+  padding: 2rem 1.5rem 1.5rem;
   text-align: center;
   min-height: 0;
 }
@@ -161,6 +205,7 @@ h2 {
   border-left: 4px solid var(--gold);
   padding-left: 0.8rem;
   margin: 2.5rem 0 1rem;
+  scroll-margin-top: 6.5rem;
 }
 
 h2:first-child { margin-top: 0; }
@@ -204,20 +249,15 @@ blockquote {
   border: 1px solid var(--border);
   border-top: 4px solid var(--gold);
   border-radius: var(--radius);
-  padding: 1.5rem 1.2rem;
-  text-align: center;
+  padding: 1rem 1.2rem;
+  text-align: left;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.value-card .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  display: block;
 }
 
 .value-card h3 {
   color: var(--navy);
-  margin: 0.2rem 0 0.5rem;
+  text-align: center;
+  margin: 0 0 0.5rem;
   font-size: 1.15rem;
   font-family: 'Georgia', serif;
 }
@@ -373,6 +413,24 @@ details .faq-body {
   font-size: 0.95rem;
 }
 
+/* ===== 「读经典｜学系统｜建模型｜养习惯」折叠块 ===== */
+.reading-links {
+  margin-top: 1.2rem;
+}
+
+.reading-links summary {
+  padding: 0.7rem 1.1rem;
+  font-size: 0.98rem;
+}
+
+.reading-links .faq-body ul {
+  margin-bottom: 0;
+}
+
+.reading-links .faq-body li:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== 书籍下拉摘要行 ===== */
 .book-summary-inner {
   display: flex;
@@ -526,4 +584,5 @@ footer {
   .book-card { flex-direction: column; }
   .resource-card { flex-direction: column; align-items: flex-start; }
   .footer-inner { grid-template-columns: 1fr; }
+  .nav-dropdown-menu { left: 50%; transform: translateX(-50%); }
 }
