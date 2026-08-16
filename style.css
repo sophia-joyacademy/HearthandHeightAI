@@ -43,8 +43,8 @@ nav {
   padding: 0 1.5rem;
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 3rem;
 }
 
 .nav-logo {
@@ -236,6 +236,16 @@ blockquote {
   font-style: italic;
 }
 
+/* 特别强调的重点引言（比普通引用块更醒目） */
+blockquote.featured-quote {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  border-left: 4px solid var(--navy);
+  padding: 1.3rem 1.8rem;
+}
+
 /* ===== 四个核心价值卡片 ===== */
 .values-grid {
   display: grid;
@@ -268,6 +278,52 @@ blockquote {
   margin: 0;
   line-height: 1.6;
 }
+
+.value-card ul {
+  padding-left: 1.1rem;
+  margin-bottom: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.value-card ul li { margin-bottom: 0.3rem; }
+.value-card ul li:last-child { margin-bottom: 0; }
+
+/* ===== 内容表格（心路历程等长文章使用） ===== */
+.info-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.88rem;
+}
+
+.info-table th {
+  background: var(--navy);
+  color: var(--white);
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.info-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.info-table tr:last-child td { border-bottom: none; }
+.info-table tbody tr:nth-child(even) td { background: var(--bg); }
 
 /* ===== 书籍卡片 ===== */
 .book-card {
@@ -405,7 +461,7 @@ details summary::after {
   transition: transform 0.2s;
 }
 
-details[open] summary::after { content: "－"; }
+details[open] > summary::after { content: "－"; }
 
 details .faq-body {
   padding: 0 1.2rem 1rem;
@@ -429,6 +485,74 @@ details .faq-body {
 
 .reading-links .faq-body li:last-child {
   margin-bottom: 0;
+}
+
+.reading-links .info-table {
+  min-width: 620px;
+}
+
+/* ===== 旷野吗哪：可展开的大段落（目标/五个维度总览/每日反思） ===== */
+.section-toggle {
+  margin: 2rem 0;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.section-toggle summary {
+  font-size: 1.15rem;
+  font-weight: 700;
+  align-items: center;
+}
+
+.section-toggle-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.section-toggle-subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.section-toggle .faq-body {
+  padding: 0 1.2rem 1.2rem;
+}
+
+.section-toggle .faq-body > *:first-child {
+  margin-top: 0;
+}
+
+.section-toggle .faq-body h2:first-child {
+  margin-top: 0;
+}
+
+/* ===== 旷野吗哪：五大维度子折叠块（嵌套在"掌握五个关键维度"内） ===== */
+.sub-toggle {
+  margin: 1rem 0;
+  background: var(--bg);
+}
+
+.sub-toggle summary {
+  font-size: 1.02rem;
+  padding: 0.8rem 1.1rem;
+}
+
+.sub-toggle .faq-body {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.1rem;
+}
+
+.sub-toggle .faq-body > *:first-child {
+  margin-top: 0;
+}
+
+.sub-toggle .reading-links {
+  margin-top: 1rem;
 }
 
 /* ===== 书籍下拉摘要行 ===== */
@@ -507,7 +631,7 @@ footer {
   max-width: 900px;
   margin: 0 auto 1.5rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 1.5rem;
   align-items: start;
 }
@@ -585,4 +709,6 @@ footer {
   .resource-card { flex-direction: column; align-items: flex-start; }
   .footer-inner { grid-template-columns: 1fr; }
   .nav-dropdown-menu { left: 50%; transform: translateX(-50%); }
+  .info-table { font-size: 0.8rem; }
+  .info-table th, .info-table td { padding: 0.5rem 0.7rem; }
 }
