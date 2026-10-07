@@ -60,7 +60,7 @@
     data-open-on-load="on"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
-  <div id="chat-slot" style="margin-top:16px; height:600px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
+  <div id="chat-slot" style="margin-top:16px; height:clamp(340px, 50vh, 460px); border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
   <style>
     #anything-llm-embed-chat-button-container { display: none !important; }
     #chat-slot #anything-llm-embed-chat-container {
@@ -68,9 +68,15 @@
       display: block !important; width: 100%; height: 100%;
     }
     #chat-slot [aria-label="Close"], #chat-slot #anything-llm-embed-chat-container button[id*="close" i] { display: none !important; }
-    #chat-slot #anything-llm-embed-chat-container > div { max-width: 100% !important; max-height: 100% !important; height: 100% !important; border-radius: 0 !important; }
+    #chat-slot #anything-llm-embed-chat-container > div {
+      position: static !important; inset: auto !important; transform: none !important;
+      width: 100% !important; max-width: 100% !important;
+      height: 100% !important; max-height: 100% !important;
+      border-radius: 0 !important; box-shadow: none !important; margin: 0 !important;
+    }
   </style>
   <script>
+    window.addEventListener('load', function () { setTimeout(function () { if (window.scrollY < 50) window.scrollTo(0, 0); }, 800); });
     (function () {
       var slot = document.getElementById('chat-slot');
       function move() {
