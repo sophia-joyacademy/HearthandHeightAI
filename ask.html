@@ -81,7 +81,8 @@
       var slot = document.getElementById('chat-slot');
       function move() {
         var c = document.getElementById('anything-llm-embed-chat-container');
-        if (c && c.parentNode !== slot) slot.appendChild(c);
+        // 移动整个 React 根节点（而非内部元素），否则事件委托失效，消息无法发送
+        if (c && c.parentNode.parentNode !== slot) slot.appendChild(c.parentNode);
         return !!c;
       }
       if (!move()) {
