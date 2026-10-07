@@ -40,19 +40,11 @@
 </nav>
 
 <div class="hero">
-  <h1>问问苏老师 <span class="ai-badge">AI</span></h1>
   <p class="subtitle">你好，我是苏老师AI，我会陪你一起想一想孩子的学习、成长和亲子关系。</p>
+  <p class="subtitle ask-examples">你可以问我：孩子最近总是拖延怎么办？ · 孩子不愿意学习，我应该怎么和他说？ · 数学成绩下降，我该从哪里开始？ · 怎样做到和善而坚定？</p>
 </div>
 
 <div class="container">
-
-  <p>你可以问我：</p>
-  <ul>
-    <li>孩子最近总是拖延怎么办？</li>
-    <li>孩子不愿意学习，我应该怎么和他说？</li>
-    <li>数学成绩下降，我该从哪里开始？</li>
-    <li>怎样做到和善而坚定？</li>
-  </ul>
 
   <script
     data-embed-id="131c1ed4-2863-4be6-a434-6a406fde1fd1"
@@ -60,8 +52,9 @@
     data-open-on-load="on"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
-  <div id="chat-slot" style="margin-top:16px; height:clamp(340px, 50vh, 460px); border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
+  <div id="chat-slot" style="margin-top:16px; height:clamp(680px, 100vh, 920px); border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
   <style>
+    .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
     #anything-llm-embed-chat-button-container { display: none !important; }
     #chat-slot > div { height: 100%; }
     #chat-slot #anything-llm-embed-chat-container {
@@ -77,7 +70,7 @@
     }
   </style>
   <script>
-    window.addEventListener('load', function () { setTimeout(function () { if (window.scrollY < 50) window.scrollTo(0, 0); }, 800); });
+    window.addEventListener('load', function () { setTimeout(function () { window.scrollTo(0, 0); }, 800); });
     (function () {
       var slot = document.getElementById('chat-slot');
       function move() {
