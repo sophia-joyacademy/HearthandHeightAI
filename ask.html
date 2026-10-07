@@ -41,7 +41,7 @@
 
 <div class="hero">
   <h1>问问苏老师 <span class="ai-badge">AI</span></h1>
-  <p class="subtitle">你好，我是苏老师，我会陪你一起想一想孩子的学习、成长和亲子关系。</p>
+  <p class="subtitle">你好，我是苏老师AI，我会陪你一起想一想孩子的学习、成长和亲子关系。</p>
 </div>
 
 <div class="container">
@@ -57,9 +57,33 @@
   <script
     data-embed-id="131c1ed4-2863-4be6-a434-6a406fde1fd1"
     data-base-api-url="https://ai.hearthandheight.org/api/embed"
+    data-open-on-load="on"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
-  <p>点击页面右下角的聊天按钮，开始和苏老师对话。</p>
+  <div id="chat-slot" style="margin-top:16px; height:600px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
+  <style>
+    #anything-llm-embed-chat-button-container { display: none !important; }
+    #chat-slot #anything-llm-embed-chat-container {
+      position: relative !important; inset: auto !important; z-index: auto !important;
+      display: block !important; width: 100%; height: 100%;
+    }
+    #chat-slot [aria-label="Close"], #chat-slot #anything-llm-embed-chat-container button[id*="close" i] { display: none !important; }
+    #chat-slot #anything-llm-embed-chat-container > div { max-width: 100% !important; max-height: 100% !important; height: 100% !important; border-radius: 0 !important; }
+  </style>
+  <script>
+    (function () {
+      var slot = document.getElementById('chat-slot');
+      function move() {
+        var c = document.getElementById('anything-llm-embed-chat-container');
+        if (c && c.parentNode !== slot) slot.appendChild(c);
+        return !!c;
+      }
+      if (!move()) {
+        var obs = new MutationObserver(function () { if (move()) obs.disconnect(); });
+        obs.observe(document.body, { childList: true, subtree: true });
+      }
+    })();
+  </script>
 
   <p style="font-size:0.85rem; color: var(--muted); margin-top:16px;">回答由 AI 生成，仅供参考，不能替代专业意见。请不要输入孩子的真实姓名等个人隐私信息。</p>
 
