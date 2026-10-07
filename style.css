@@ -712,3 +712,17 @@ footer {
   .info-table { font-size: 0.8rem; }
   .info-table th, .info-table td { padding: 0.5rem 0.7rem; }
 }
+
+.ai-badge {
+  display: inline-block;
+  font-size: 0.65em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  margin-left: 2px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #fff;
+  vertical-align: middle;
+  letter-spacing: 0.5px;
+}
