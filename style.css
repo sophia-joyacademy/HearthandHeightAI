@@ -696,19 +696,28 @@ footer {
 }
 
 /* ===== 响应式 ===== */
+.nav-toggle { display: none; }
+
 @media (max-width: 700px) {
-  .nav-inner { flex-direction: column; align-items: center; padding: 0.5rem 0; gap: 0; }
-  .nav-logo { padding: 0.6rem 0; }
-  .nav-logo-img { height: 52px !important; max-height: 52px !important; }
-  nav ul { flex-wrap: wrap; justify-content: center; }
-  nav ul li a { min-height: 38px; padding: 0.4rem 0.6rem; font-size: 0.82rem; }
+  .nav-inner { flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 0 1rem; gap: 0; }
+  .nav-logo { padding: 0.4rem 0; }
+  .nav-logo-img { height: 44px !important; max-height: 44px !important; }
+  .nav-toggle {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 0 10px; margin-left: auto;
+    background: none; border: none; cursor: pointer;
+  }
+  .nav-toggle span { display: block; height: 2px; background: var(--navy); border-radius: 2px; }
+  nav ul { display: none; flex-direction: column; width: 100%; padding-bottom: 0.5rem; }
+  nav.nav-open ul { display: flex; }
+  nav ul li a { min-height: 0; padding: 0.5rem 0.4rem; font-size: 0.9rem; }
+  .nav-dropdown-menu { display: none !important; }
   .hero h1 { font-size: 1.5rem; }
   .hero .subtitle { font-size: 0.85rem; letter-spacing: 0; }
   .values-grid { grid-template-columns: 1fr; }
   .book-card { flex-direction: column; }
   .resource-card { flex-direction: column; align-items: flex-start; }
   .footer-inner { grid-template-columns: 1fr; }
-  .nav-dropdown-menu { left: 50%; transform: translateX(-50%); }
   .info-table { font-size: 0.8rem; }
   .info-table th, .info-table td { padding: 0.5rem 0.7rem; }
 }
