@@ -52,8 +52,10 @@
     data-open-on-load="on"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
-  <div id="chat-slot" style="margin-top:16px; height:clamp(680px, 100vh, 920px); border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
+  <div id="chat-slot" style="margin-top:16px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
   <style>
+    #chat-slot { height: clamp(680px, 100vh, 920px); }
+    @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
     .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
     #anything-llm-embed-chat-button-container { display: none !important; }
     #chat-slot > div { height: 100%; }
