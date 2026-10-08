@@ -737,6 +737,8 @@ footer {
   letter-spacing: 0.5px;
 }
 
+nav .ai-badge { margin-left: 0; }
+
 /* ===== 问答页：示例问题 ===== */
 .ask-starters { margin-top: 14px; text-align: center; }
 .ask-starters-label { margin: 0 0 0.4rem; font-size: 0.85rem; color: var(--muted); }
