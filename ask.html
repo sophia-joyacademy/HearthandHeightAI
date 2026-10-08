@@ -42,7 +42,6 @@
 
 <div class="hero">
   <p class="subtitle">你好，我是美嘉 <span class="ai-badge">AI</span>，我会陪你一起想一想孩子的学习、成长和亲子关系。</p>
-  <p class="subtitle ask-examples">你可以问我：孩子最近总是拖延怎么办？ · 孩子不愿意学习，我应该怎么和他说？ · 数学成绩下降，我该从哪里开始？ · 怎样做到和善而坚定？</p>
 </div>
 
 <div class="container">
@@ -60,7 +59,6 @@
   <style>
     #chat-slot { height: clamp(680px, 100vh, 920px); }
     @media (min-width: 769px) { #chat-slot { height: clamp(420px, calc(100vh - 330px), 720px); } }
-    .hero .ask-examples { font-size: 0.85em; max-width: 760px; margin-top: 0.6rem; opacity: 0.9; }
     #anything-llm-embed-chat-button-container { display: none !important; }
     #chat-slot > div { height: 100%; }
     #chat-slot #anything-llm-embed-chat-container {
@@ -129,6 +127,30 @@
       new MutationObserver(apply).observe(document.body, { childList: true, subtree: true, characterData: true });
       apply();
     })();
+  </script>
+
+  <div class="ask-starters">
+    <p class="ask-starters-label">你可以问我：</p>
+    <ul>
+      <li><button type="button">我总是忍不住对孩子发脾气，我可以怎样调整自己的情绪？</button></li>
+      <li><button type="button">我和孩子说什么他都不听，我可以怎样和他沟通？</button></li>
+      <li><button type="button">孩子最近状态不好，我可以做些什么来帮助他？</button></li>
+      <li><button type="button">孩子做作业总是拖延，我可以怎样帮助他？</button></li>
+      <li><button type="button">怎样帮助孩子学会感恩、尊重与关怀别人？</button></li>
+      <li><button type="button">怎样陪孩子在学习、服务和生活中慢慢成长？</button></li>
+    </ul>
+  </div>
+  <script>
+    document.querySelector('.ask-starters').addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      var input = document.querySelector('#chat-slot textarea');
+      if (!b || !input) return;
+      // 必须用原生 setter 并派发 input 事件，React 受控输入框才会更新内部状态
+      var setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set;
+      setter.call(input, b.textContent);
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.focus();
+    });
   </script>
 
   <p style="font-size:0.85rem; color: var(--muted); margin-top:16px;">回答由 AI 生成，仅供参考，不能替代专业意见。请不要输入孩子的真实姓名等个人隐私信息。</p>
