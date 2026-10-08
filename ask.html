@@ -51,6 +51,9 @@
     data-embed-id="131c1ed4-2863-4be6-a434-6a406fde1fd1"
     data-base-api-url="https://ai.hearthandheight.org/api/embed"
     data-open-on-load="on"
+    data-no-sponsor="true"
+    data-reset-chat-text="开始新的对话"
+    data-send-message-text="今天想和美嘉聊些什么？"
     src="https://ai.hearthandheight.org/embed/anythingllm-chat-widget.min.js">
   </script>
   <div id="chat-slot" style="margin-top:16px; border:1px solid #ddd; border-radius:12px; overflow:hidden;"></div>
@@ -86,6 +89,45 @@
         var obs = new MutationObserver(function () { if (move()) obs.disconnect(); });
         obs.observe(document.body, { childList: true, subtree: true });
       }
+    })();
+  </script>
+
+  <script>
+    // 每日随机引导语：同一天固定，第二天自动更换
+    (function () {
+      var PROMPTS = [
+        "今天，有什么值得感恩？","今天，有什么值得我们珍惜？","今天，是否有一个小小的恩典值得记在心里？","在平凡的一天里，我们有没有留心看见美好？",
+        "今天，有什么值得我们心存敬畏？","面对孩子正在经历的事情，我们可以学习什么？","今天，怎样带着一颗谦卑的心去学习？","在孩子身上，有什么值得我们尊重和欣赏的地方？",
+        "今天，我们可以为谁做一件小小的事？","今天，有没有一个机会，让我们帮助别人？","怎样让孩子在学习中，也学会关心和服务别人？","今天，我们可以怎样给家人多一点帮助、多一点体谅？",
+        "最近，孩子在哪一方面正在慢慢成长？","最近的一个小进步，值得怎样被看见？","成长不只是学会更多，也可以是成为更好的人。","今天，想和孩子一起学习什么？",
+        "今天，怎样陪孩子在学习中成长？","面对困难，我们可以学习怎样坚持？","今天，有什么可以让我们一起想一想、一起成长？","愿我们在感恩中生活，在敬畏中学习，在服务中付出，在成长中成为更好的自己。",
+        "今天，让我们慢一点，看见身边值得感恩的人和事。","今天，愿我们少一点匆忙，多一点留心。","孩子在成长，我们也在成长。","今天，有什么想和美嘉一起想一想？"
+      ];
+      var d = new Date();
+      var key = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+      var h = key; h = ((h >>> 16) ^ h) * 0x45d9f3b; h = ((h >>> 16) ^ h) * 0x45d9f3b; h = (h >>> 16) ^ h;
+      var daily = PROMPTS[Math.abs(h) % PROMPTS.length];
+      var EMPTY = /Send a chat to get started\.?/;
+      function apply() {
+        var slot = document.getElementById('chat-slot');
+        if (!slot) return;
+        var w = document.createTreeWalker(slot, NodeFilter.SHOW_TEXT), n;
+        while ((n = w.nextNode())) {
+          if (EMPTY.test(n.nodeValue)) {
+            n.nodeValue = "今天想从哪里开始？";
+            var p = n.parentNode;
+            if (p && !p.parentNode.querySelector('.daily-prompt')) {
+              var e = document.createElement('p');
+              e.className = 'daily-prompt';
+              e.textContent = daily;
+              e.style.cssText = 'margin:10px 16px 0;font-size:0.95rem;opacity:0.75;text-align:center;line-height:1.6;';
+              p.insertAdjacentElement('afterend', e);
+            }
+          }
+        }
+      }
+      new MutationObserver(apply).observe(document.body, { childList: true, subtree: true, characterData: true });
+      apply();
     })();
   </script>
 
