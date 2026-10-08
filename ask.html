@@ -77,18 +77,10 @@
     window.addEventListener('load', function () { setTimeout(function () { window.scrollTo(0, 0); }, 800); });
     (function () {
       var slot = document.getElementById('chat-slot');
-      function hideWidgetHeader(chat) {
-        var logo = chat.querySelector('img[alt="AnythingLLM Logo"]');
-        var options = chat.querySelector('button[aria-label="Options"]');
-        if (logo) logo.style.setProperty('display', 'none', 'important');
-        if (options) options.style.setProperty('display', 'none', 'important');
-      }
-
       function move() {
         var c = document.getElementById('anything-llm-embed-chat-container');
         // 移动整个 React 根节点（而非内部元素），否则事件委托失效，消息无法发送
         if (c && c.parentNode.parentNode !== slot) slot.appendChild(c.parentNode);
-        if (c) hideWidgetHeader(c);
         return !!c;
       }
       if (!move()) {
