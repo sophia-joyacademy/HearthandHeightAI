@@ -740,6 +740,7 @@ footer {
 /* ===== 问答页：示例问题 ===== */
 .ask-starters { margin-top: 14px; text-align: center; }
 .ask-starters-label { margin: 0 0 0.4rem; font-size: 0.85rem; color: var(--muted); }
+.ask-starters li { margin: 0; }
 .ask-starters ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 0.5rem; }
 .ask-starters button {
   font: inherit; font-size: 0.85rem; line-height: 1.5; color: var(--navy);
@@ -747,7 +748,3 @@ footer {
   padding: 0.3rem 0.8rem; cursor: pointer; transition: background 0.15s;
 }
 .ask-starters button:hover, .ask-starters button:focus-visible { background: var(--bg); }
-@media (max-width: 700px) {
-  .ask-starters ul { flex-direction: column; align-items: stretch; }
-  .ask-starters button { text-align: left; border-radius: 10px; }
-}
