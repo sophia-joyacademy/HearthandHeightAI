@@ -193,6 +193,19 @@ nav ul li a.active {
 }
 
 /* ===== 主内容区 ===== */
+.daily-journal details,
+.daily-chapters li { scroll-margin-top: 7rem; }
+.daily-journal details > summary { gap: 1rem; min-height: 44px; }
+.daily-journal details > summary::after { content: "+"; flex-shrink: 0; }
+.daily-journal details[open] > summary::after { content: "-"; }
+.daily-action { border-left: 4px solid var(--gold); padding: 0.2rem 1rem; background: var(--gold-light); }
+.daily-note, .daily-chapter { color: var(--muted); font-size: 0.9rem; }
+.daily-navigation { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem; }
+.daily-chapters { list-style: none; padding: 0; }
+.daily-chapters li { margin-bottom: 0.75rem; }
+.daily-chapters a { display: block; min-height: 44px; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); }
+.daily-chapters a:hover { background: var(--gold-light); }
+.daily-chapters .daily-chapter { display: block; }
 .container {
   max-width: 860px;
   margin: 0 auto;
